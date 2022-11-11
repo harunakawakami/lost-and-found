@@ -15,10 +15,13 @@ function setupServer() {
 
   app.get("/api/button", async (req, res) => {
     try {
-      const button = await db("buttons").select("*");
-      res.status(200).send(button);
+      const buttons = await db("button_table").select("*");
+      buttons.length > 0
+        ? res.status(200).send(button)
+        : res.status(404).send("No buttons found");
     } catch (err) {
       console.error(err);
+      res.status(500).send(err);
     }
   });
 
