@@ -1,11 +1,11 @@
-import express from "express";
+const express = require("express");
 
 function setupServer() {
   const app = express();
 
   //middleware
   app.use(express.json());
-  // app.use(express.static(path.join(__dirname, '../public')));
+  // app.use(express.static(path.join(__dirname, "../public")));
 
   app.get("/", (req, res) => {
     res.status(200).send("ok");
@@ -14,4 +14,4 @@ function setupServer() {
   return app;
 }
 
-export default setupServer;
+module.exports = setupServer;

@@ -3,10 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "node ./server/index.js",
+    "build": "npm install && npm run rollback && npm run migrate && npm run seed",
     "dev": "nodemon ./server/index.js",
+    "make:migration": "knex migrate:make",
+    "migrate": "knex migrate:latest",
+    "make:seed": "knex seed:make",
+    "seed": "knex seed:run",
+    "rollback": "npx knex migrate:rollback",
+    "reset-database": "npm run rollback && npm run migrate && npm run seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,9 +27,12 @@
   },
   "homepage": "https://github.com/harunakawakami/button-generator#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "knex": "^2.3.0",
+    "pg": "^8.8.0"
   },
   "devDependencies": {
+    "dotenv": "^16.0.3",
     "nodemon": "^2.0.20"
   }
 }
