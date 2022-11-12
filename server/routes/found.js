@@ -9,10 +9,6 @@ router.get("/:foundId", (req, res) => {
   res.send("supposed to be a single page of found item");
 });
 
-router.get("/newitem", (req, res) => {
-  res.send("supposed to be a create form page");
-});
-
 router.post("/newitem", (req, res) => {
   res.send("supposed to send the data");
 });

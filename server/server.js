@@ -1,5 +1,4 @@
 const express = require("express");
-const { syncBuiltinESMExports } = require("module");
 const db = require("../db/knex");
 
 const lostRoutes = require("./routes/found");
@@ -15,7 +14,7 @@ function setupServer() {
     res.status(200).send("ok");
   });
 
-  app.use("/found", lostRoutes);
+  app.use("/api/found", lostRoutes);
 
   return app;
 }
