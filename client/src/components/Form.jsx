@@ -1,3 +1,5 @@
+import * as React from "react";
+import Map from "react-map-gl";
 import { useForm, Controller } from "react-hook-form";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -96,21 +98,14 @@ export default function Form() {
             </Box>
           </Box>
         </Grid>
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={5}
-          sx={{
-            backgroundImage: "url(https://source.unsplash.com/random)",
-            backgroundRepeat: "no-repeat",
-            backgroundColor: (t) =>
-              t.palette.mode === "light"
-                ? t.palette.grey[50]
-                : t.palette.grey[900],
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+        <Map
+          initialViewState={{
+            longitude: 139.65,
+            latitude: 35.67,
+            zoom: 10,
           }}
+          style={{ width: 600, height: "100vh" }}
+          mapStyle="mapbox://styles/mapbox/streets-v9"
         />
       </Grid>
     </ThemeProvider>

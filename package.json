@@ -1,5 +1,5 @@
 {
-  "name": "button-generator",
+  "name": "lost-and-found",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/harunakawakami/button-generator#readme",
   "dependencies": {
-    "@mapbox/mapbox-sdk": "^0.13.7",
     "concurrently": "^7.5.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
