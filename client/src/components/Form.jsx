@@ -16,7 +16,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme();
 
 export default function Form() {
-  const { register, handleSubmit } = useForm();
+  const { handleSubmit, control, reset } = useForm();
   const onSubmit = (data) => console.log(data);
 
   return (
@@ -53,7 +53,6 @@ export default function Form() {
                 type="input"
                 name="item"
                 autoFocus
-                {...register("item", { required: true })}
               />
               <TextField
                 margin="normal"
@@ -63,18 +62,35 @@ export default function Form() {
                 type="input"
                 id="prev-location"
                 autoFocus
-                {...register("prev-location", { required: true })}
               />
-              <TextField
-                margin="normal"
-                fullWidth
-                name="current-location"
-                label="Current item location"
-                type="input"
-                id="current-location"
-                autoFocus
-                {...register("current-location", { required: true })}
-              />
+              <Grid
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+                item
+              >
+                <TextField
+                  margin="normal"
+                  fullWidth
+                  name="current-location"
+                  label="Current item location"
+                  type="input"
+                  id="current-location"
+                  autoFocus
+                />
+                <Button
+                  id="update-location"
+                  name="update-location"
+                  variant="contained"
+                  component="label"
+                  sx={{ mt: 2, mb: 1, ml: 1 }}
+                >
+                  Check Locaiton
+                </Button>
+              </Grid>
+
               <Button
                 startIcon={<PhotoCamera />}
                 id="photo-item"
@@ -86,6 +102,15 @@ export default function Form() {
                 Upload item picture
                 <input type="file" hidden />
               </Button>
+              <TextField
+                margin="normal"
+                fullWidth
+                name="comments"
+                label="Any comments?"
+                type="input"
+                id="comments"
+                autoFocus
+              />
               <Button
                 startIcon={<Report />}
                 type="submit"
@@ -100,9 +125,9 @@ export default function Form() {
         </Grid>
         <Map
           initialViewState={{
-            longitude: 139.65,
-            latitude: 35.67,
-            zoom: 10,
+            longitude: 139.7531,
+            latitude: 35.6812,
+            zoom: 12,
           }}
           style={{ width: 600, height: "100vh" }}
           mapStyle="mapbox://styles/mapbox/streets-v9"
