@@ -38,6 +38,7 @@ export default function Form() {
 
   const [longitude, setLongitude] = useState(139.7531);
   const [latitude, setLatitude] = useState(35.6812);
+  const [coordinates, setCoordinates] = useState();
   const mapRef = useRef(null);
 
   useEffect(() => {
@@ -45,6 +46,7 @@ export default function Form() {
   }, [longitude, latitude]);
 
   function onSubmit(data) {
+    data.lonAndLat = coordinates;
     console.log(data);
     reset();
   }
@@ -63,6 +65,7 @@ export default function Form() {
       })
       .send();
     const lonAndLatObj = geoData.body.features[0].geometry;
+    setCoordinates(lonAndLatObj);
     setLongitude(lonAndLatObj.coordinates[0]);
     setLatitude(lonAndLatObj.coordinates[1]);
   }
