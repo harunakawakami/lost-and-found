@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 
-import Map from "react-map-gl";
+import Map, { Marker } from "react-map-gl";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 
 import Avatar from "@mui/material/Avatar";
@@ -35,6 +35,9 @@ export default function Form() {
     },
   });
 
+  const [longitude, setLongitude] = useState(139.7531);
+  const [latitude, setLatitude] = useState(35.6812);
+
   function onSubmit(data) {
     console.log(data);
     reset();
@@ -53,7 +56,9 @@ export default function Form() {
         countries: ["JP"],
       })
       .send();
-    console.log(geoData);
+    const lonAndLatObj = geoData.body.features[0].geometry;
+    setLongitude(lonAndLatObj.coordinates[0]);
+    setLatitude(lonAndLatObj.coordinates[1]);
   }
 
   return (
@@ -194,14 +199,21 @@ export default function Form() {
         </Grid>
         <Map
           initialViewState={{
-            longitude: 139.7531,
-            latitude: 35.6812,
-            zoom: 12,
+            longitude: longitude,
+            latitude: latitude,
+            zoom: 15,
           }}
           style={{ width: 600, height: "100vh" }}
           mapStyle="mapbox://styles/mapbox/streets-v9"
-        />
+        >
+          <Marker longitude={longitude} latitude={latitude} anchor="bottom">
+            <LocationOn />
+          </Marker>
+        </Map>
       </Grid>
     </ThemeProvider>
   );
 }
+
+// const [longitude, setLongitude] = useState(139.7531);
+// const [latitude, setLatitude] = useState(35.6812);
