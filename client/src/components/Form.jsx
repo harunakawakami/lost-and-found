@@ -1,6 +1,9 @@
-import * as React from "react";
-import Map from "react-map-gl";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
+
+import Map from "react-map-gl";
+import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
+
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -18,10 +21,12 @@ import {
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+const mapboxToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+const geocoder = mbxGeocoding({ accessToken: mapboxToken });
 const theme = createTheme();
 
 export default function Form() {
-  const { handleSubmit, control, reset } = useForm({
+  const { handleSubmit, control, reset, getValues } = useForm({
     defaultValues: {
       item: "",
       prevLocation: "",
@@ -35,8 +40,20 @@ export default function Form() {
     reset();
   }
 
-  function checkLocation(e) {
+  async function checkLocation(e) {
     e.preventDefault();
+    const currentLocation = getValues("currentLocation");
+
+    const geoData = await geocoder
+      .forwardGeocode({
+        query: currentLocation,
+        limit: 1,
+        fuzzyMatch: true,
+        types: ["poi"],
+        countries: ["JP"],
+      })
+      .send();
+    console.log(geoData);
   }
 
   return (
@@ -123,6 +140,7 @@ export default function Form() {
                 ></Controller>
 
                 <Button
+                  onClick={checkLocation}
                   startIcon={<LocationOn />}
                   id="update-location"
                   name="update-location"
