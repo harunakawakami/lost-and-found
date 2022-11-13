@@ -21,8 +21,19 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme();
 
 export default function Form() {
-  const { handleSubmit, control, reset } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { handleSubmit, control, reset } = useForm({
+    defaultValues: {
+      item: "",
+      prevLocation: "",
+      currentLocation: "",
+      comments: "",
+    },
+  });
+
+  function onSubmit(data) {
+    console.log(data);
+    reset();
+  }
 
   function checkLocation(e) {
     e.preventDefault();
@@ -51,27 +62,41 @@ export default function Form() {
             <Box
               component="form"
               noValidate
-              onSubmit={handleSubmit}
+              onSubmit={handleSubmit(onSubmit)}
               sx={{ mt: 1 }}
             >
-              <TextField
-                margin="normal"
-                fullWidth
-                id="item"
-                label="Item description"
-                type="input"
+              <Controller
                 name="item"
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                fullWidth
-                name="prev-location"
-                label="Where you found the item?"
-                type="input"
-                id="prev-location"
-                autoFocus
-              />
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    margin="normal"
+                    fullWidth
+                    id="item"
+                    label="Item description"
+                    type="input"
+                    autoFocus
+                  />
+                )}
+              ></Controller>
+              <Controller
+                name="prevLocation"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    margin="normal"
+                    fullWidth
+                    id="prevLocation"
+                    label="Where you found the item?"
+                    type="input"
+                    autoFocus
+                  />
+                )}
+              ></Controller>
               <Grid
                 sx={{
                   display: "flex",
@@ -80,15 +105,23 @@ export default function Form() {
                 }}
                 item
               >
-                <TextField
-                  margin="normal"
-                  fullWidth
-                  name="current-location"
-                  label="Current item location"
-                  type="input"
-                  id="current-location"
-                  autoFocus
-                />
+                <Controller
+                  name="currentLocation"
+                  control={control}
+                  rules={{ required: true }}
+                  render={({ field }) => (
+                    <TextField
+                      {...field}
+                      margin="normal"
+                      fullWidth
+                      id="currentLocation"
+                      label="Current item location"
+                      type="input"
+                      autoFocus
+                    />
+                  )}
+                ></Controller>
+
                 <Button
                   startIcon={<LocationOn />}
                   id="update-location"
@@ -103,8 +136,8 @@ export default function Form() {
               </Grid>
               <Button
                 startIcon={<PhotoCamera />}
-                id="photo-item"
-                name="photo-item"
+                id="photoItem"
+                name="photoItem"
                 variant="contained"
                 component="label"
                 sx={{ mt: 2, mb: 1 }}
@@ -112,15 +145,23 @@ export default function Form() {
                 Upload item picture
                 <input type="file" hidden />
               </Button>
-              <TextField
-                margin="normal"
-                fullWidth
+              <Controller
                 name="comments"
-                label="Any comments?"
-                type="input"
-                id="comments"
-                autoFocus
-              />
+                control={control}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    margin="normal"
+                    fullWidth
+                    id="comments"
+                    name="comments"
+                    label="Any comments?"
+                    type="input"
+                    autoFocus
+                  />
+                )}
+              ></Controller>
+
               <Button
                 startIcon={<Report />}
                 type="submit"
