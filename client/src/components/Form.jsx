@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 
 import Map, { Marker } from "react-map-gl";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 
+import "./Form.css";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -20,6 +20,7 @@ import {
 } from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import pointer from "./icon/location-outline.svg";
 
 const mapboxToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 const geocoder = mbxGeocoding({ accessToken: mapboxToken });
@@ -37,6 +38,11 @@ export default function Form() {
 
   const [longitude, setLongitude] = useState(139.7531);
   const [latitude, setLatitude] = useState(35.6812);
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    flyToLocation(longitude, latitude);
+  }, [longitude, latitude]);
 
   function onSubmit(data) {
     console.log(data);
@@ -59,6 +65,14 @@ export default function Form() {
     const lonAndLatObj = geoData.body.features[0].geometry;
     setLongitude(lonAndLatObj.coordinates[0]);
     setLatitude(lonAndLatObj.coordinates[1]);
+  }
+
+  function flyToLocation(longitude, latitude) {
+    if (!mapRef.current) return;
+    mapRef.current.flyTo({
+      center: [longitude, latitude],
+      essential: true,
+    });
   }
 
   return (
@@ -198,6 +212,7 @@ export default function Form() {
           </Box>
         </Grid>
         <Map
+          ref={mapRef}
           initialViewState={{
             longitude: longitude,
             latitude: latitude,
@@ -207,13 +222,10 @@ export default function Form() {
           mapStyle="mapbox://styles/mapbox/streets-v9"
         >
           <Marker longitude={longitude} latitude={latitude} anchor="bottom">
-            <LocationOn />
+            <img className="icon__pointer" src={pointer} alt="" />
           </Marker>
         </Map>
       </Grid>
     </ThemeProvider>
   );
 }
-
-// const [longitude, setLongitude] = useState(139.7531);
-// const [latitude, setLatitude] = useState(35.6812);
