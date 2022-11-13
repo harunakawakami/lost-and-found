@@ -9,7 +9,12 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import { NoLuggage, PhotoCamera, Report } from "@mui/icons-material";
+import {
+  NoLuggage,
+  PhotoCamera,
+  Report,
+  LocationOn,
+} from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -18,6 +23,10 @@ const theme = createTheme();
 export default function Form() {
   const { handleSubmit, control, reset } = useForm();
   const onSubmit = (data) => console.log(data);
+
+  function checkLocation(e) {
+    e.preventDefault();
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -81,16 +90,17 @@ export default function Form() {
                   autoFocus
                 />
                 <Button
+                  startIcon={<LocationOn />}
                   id="update-location"
                   name="update-location"
                   variant="contained"
                   component="label"
+                  size="large"
                   sx={{ mt: 2, mb: 1, ml: 1 }}
                 >
-                  Check Locaiton
+                  Check
                 </Button>
               </Grid>
-
               <Button
                 startIcon={<PhotoCamera />}
                 id="photo-item"
