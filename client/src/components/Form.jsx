@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
 
 import Map, { Marker } from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 
 import "./Form.css";
@@ -97,7 +98,7 @@ export default function Form() {
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
-        <Grid item xs={12} sm={8} md={7} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={8} component={Paper} elevation={6} square>
           <Box
             sx={{
               my: 8,
@@ -110,7 +111,7 @@ export default function Form() {
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <NoLuggage />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h5" sx={{ color: "black" }}>
               Report Found Item
             </Typography>
             <Box
@@ -229,7 +230,7 @@ export default function Form() {
             </Box>
           </Box>
         </Grid>
-        <Grid sm={6} md={5}>
+        <Grid sm={6}>
           <Map
             ref={mapRef}
             initialViewState={{
@@ -240,7 +241,12 @@ export default function Form() {
             style={{ width: 600, height: "100vh" }}
             mapStyle="mapbox://styles/mapbox/streets-v9"
           >
-            <Marker longitude={longitude} latitude={latitude} anchor="top">
+            <Marker
+              longitude={longitude}
+              latitude={latitude}
+              pitchAlignment="map"
+              anchor="top"
+            >
               <img className="icon__pin" src={pin} alt="" />
             </Marker>
           </Map>
