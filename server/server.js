@@ -9,7 +9,7 @@ function setupServer() {
 
   //middleware
   app.use(express.json());
-  app.use(express.static(path.join(__dirname, "../client")));
+  app.use(express.static(path.join(__dirname, "../client/build")));
   app.use(cors());
 
   app.get("/", (req, res) => {

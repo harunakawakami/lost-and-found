@@ -228,20 +228,22 @@ export default function Form() {
             </Box>
           </Box>
         </Grid>
-        <Map
-          ref={mapRef}
-          initialViewState={{
-            longitude: longitude,
-            latitude: latitude,
-            zoom: 15,
-          }}
-          style={{ width: 600, height: "100vh" }}
-          mapStyle="mapbox://styles/mapbox/streets-v9"
-        >
-          <Marker longitude={longitude} latitude={latitude} anchor="bottom">
-            <img className="icon__pointer" src={pointer} alt="" />
-          </Marker>
-        </Map>
+        <Grid sm={6} md={5}>
+          <Map
+            ref={mapRef}
+            initialViewState={{
+              longitude: longitude,
+              latitude: latitude,
+              zoom: 15,
+            }}
+            style={{ width: 600, height: "100vh" }}
+            mapStyle="mapbox://styles/mapbox/streets-v9"
+          >
+            <Marker longitude={longitude} latitude={latitude} anchor="bottom">
+              <img className="icon__pointer" src={pointer} alt="" />
+            </Marker>
+          </Map>
+        </Grid>
       </Grid>
     </ThemeProvider>
   );
