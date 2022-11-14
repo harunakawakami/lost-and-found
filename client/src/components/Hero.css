@@ -1,6 +1,10 @@
+img {
+  width: 100%;
+}
+
 .container {
   width: 100%;
-  height: 100vh;
+  height: 90vh;
 }
 
 .img__container {
@@ -10,11 +14,16 @@
 }
 
 .link__container {
-  height: 70%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.img__lost,
+.img__found {
+  width: 400px;
 }
 
 .found--list,
@@ -22,6 +31,7 @@
   width: 50%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -32,4 +42,17 @@
 
 .report--item {
   background-color: #e0e1dd;
+}
+
+.txt__link {
+  color: #0d1b2a;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+
+.txt__link:hover {
+  opacity: 0.6;
 }
