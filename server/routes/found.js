@@ -1,4 +1,6 @@
 const express = require("express");
+const db = require("../../db/knex");
+const { default: knex } = require("knex");
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -9,9 +11,21 @@ router.get("/:foundId", (req, res) => {
   res.send("supposed to be a single page of found item");
 });
 
-router.post("/newitem", (req, res) => {
-  console.log(req.body);
-  res.send("supposed to send the data");
+router.post("/newitem", async (req, res) => {
+  const foundItem = req.body;
+
+  try {
+    await db("found_item").insert({
+      item: foundItem.item,
+      prev_location: foundItem.prev_location,
+      curr_location: foundItem.curr_location,
+      coordinates: foundItem.coordinates,
+      comment: foundItem.comment,
+    });
+    res.status(200).send("ok");
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 router.delete("/:foundId", (req, res) => {
