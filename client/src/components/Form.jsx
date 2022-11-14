@@ -25,6 +25,8 @@ import pin from "./icon/pin.svg";
 
 const mapboxToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 const geocoder = mbxGeocoding({ accessToken: mapboxToken });
+mapboxgl.workerClass =
+  require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 const theme = createTheme();
 
 export default function Form() {
