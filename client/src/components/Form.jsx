@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
+import axios from "axios";
 
 import Map, { Marker } from "react-map-gl";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
@@ -32,7 +33,8 @@ export default function Form() {
       item: "",
       prevLocation: "",
       currentLocation: "",
-      comments: "",
+      photoItem: "",
+      comment: "",
     },
   });
 
@@ -45,10 +47,22 @@ export default function Form() {
     flyToLocation(longitude, latitude);
   }, [longitude, latitude]);
 
-  function onSubmit(data) {
+  async function onSubmit(data) {
     data.lonAndLat = coordinates;
     console.log(data);
-    reset();
+    try {
+      await axios.post(process.env.REACT_APP_API_URL + "/api/found/newitem", {
+        item: data.item,
+        prev_location: data.prevLocation,
+        curr_location: data.currentLocation,
+        coordinates: data.lonAndLat,
+        // img_url: data.photoItem,
+        comment: data.comment,
+      });
+      reset();
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   async function checkLocation(e) {
@@ -186,15 +200,15 @@ export default function Form() {
                 <input type="file" hidden />
               </Button>
               <Controller
-                name="comments"
+                name="comment"
                 control={control}
                 render={({ field }) => (
                   <TextField
                     {...field}
                     margin="normal"
                     fullWidth
-                    id="comments"
-                    name="comments"
+                    id="comment"
+                    name="comment"
                     label="Any comments?"
                     type="input"
                     autoFocus

@@ -10,6 +10,7 @@ router.get("/:foundId", (req, res) => {
 });
 
 router.post("/newitem", (req, res) => {
+  console.log(req.body);
   res.send("supposed to send the data");
 });
 
