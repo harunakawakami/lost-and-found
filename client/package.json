@@ -17,8 +17,7 @@
     "react-hook-form": "^7.39.3",
     "react-map-gl": "^7.0.19",
     "react-router-dom": "^6.4.3",
-    "react-scripts": "5.0.1",
-    "worker-loader": "^3.0.8"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,9 +34,8 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "defaults",
+      "not ie 11"
     ],
     "development": [
       "last 1 chrome version",
