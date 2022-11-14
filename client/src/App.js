@@ -8,8 +8,8 @@ import "./App.css";
 function App() {
   return (
     <>
-      <Header />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path={`/`} element={<Hero />} />
           {/* <Route path={`/found`} element={<FoundList />} />  */}

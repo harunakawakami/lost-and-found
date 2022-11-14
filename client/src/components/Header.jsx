@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -6,7 +6,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
 
 export default function Header() {
   return (
@@ -37,18 +36,17 @@ export default function Header() {
           >
             Lost and Found
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <MenuItem>
-              <Link to="/found">
-                <Typography textAlign="center">Found Items</Typography>
-              </Link>
-            </MenuItem>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Link to="/found/newitem"></Link>
-            <Button sx={{ my: 2, color: "white", display: "block" }}>
-              Report Found Item
-            </Button>
+          <Box sx={{ display: "flex", ml: "auto" }}>
+            <Link style={{ textDecoration: "none" }} to="/found">
+              <Button variant="text" sx={{ color: "white" }}>
+                Found Items
+              </Button>
+            </Link>
+            <Link style={{ textDecoration: "none" }} to="/found/newitem">
+              <Button variant="text" sx={{ color: "white", mr: 1, ml: 1 }}>
+                Report Found Item
+              </Button>
+            </Link>
           </Box>
         </Toolbar>
       </Container>

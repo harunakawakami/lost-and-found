@@ -11,7 +11,9 @@ export default function Hero() {
   return (
     <>
       <div className="container">
-        <section className="img__container"></section>
+        <section className="img__container">
+          <h1>Look for What You Lost & Help Someone In Need</h1>
+        </section>
         <section className="link__container">
           <div className="found--list">
             <Link className="txt__link" to="/found/">

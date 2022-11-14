@@ -110,7 +110,7 @@ export default function Form() {
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <NoLuggage />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h5" sx={{ color: "black" }}>
               Report Found Item
             </Typography>
             <Box
