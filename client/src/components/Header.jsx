@@ -20,22 +20,24 @@ export default function Header() {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "flex" },
-              fontFamily: "Pacifico",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            Lost and Found
-          </Typography>
+          <Link style={{ textDecoration: "none" }} to="/">
+            <Typography
+              variant="h6"
+              noWrap
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "flex" },
+                fontFamily: "Pacifico",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              Lost and Found
+            </Typography>
+          </Link>
+
           <Box sx={{ display: "flex", ml: "auto" }}>
             <Link style={{ textDecoration: "none" }} to="/found">
               <Button variant="text" sx={{ color: "white" }}>
