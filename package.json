@@ -8,7 +8,7 @@
     "server": "node-env-run server --exec nodemon",
     "dev": "nodemon ./server/index.js",
     "concurrent": "concurrently \"npm run dev\" \"cd client && npm start\"",
-    "build": "npm install && cd client && npm install && npm run build",
+    "build": "npm install && npm run migrate && cd client && npm install && npm run build",
     "make:migration": "knex migrate:make",
     "migrate": "knex migrate:latest",
     "make:seed": "knex seed:make",

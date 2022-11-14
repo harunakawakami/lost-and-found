@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-const db = require("../db/knex");
 
 const foundRoutes = require("./routes/found");
 
