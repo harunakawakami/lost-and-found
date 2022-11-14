@@ -21,7 +21,7 @@ import {
 } from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import pointer from "./icon/location-outline.svg";
+import pin from "./icon/pin.svg";
 
 const mapboxToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 const geocoder = mbxGeocoding({ accessToken: mapboxToken });
@@ -239,8 +239,8 @@ export default function Form() {
             style={{ width: 600, height: "100vh" }}
             mapStyle="mapbox://styles/mapbox/streets-v9"
           >
-            <Marker longitude={longitude} latitude={latitude} anchor="bottom">
-              <img className="icon__pointer" src={pointer} alt="" />
+            <Marker longitude={longitude} latitude={latitude} anchor="top">
+              <img className="icon__pin" src={pin} alt="" />
             </Marker>
           </Map>
         </Grid>
