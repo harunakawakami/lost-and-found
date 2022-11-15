@@ -4,6 +4,8 @@ import "./Hero.css";
 import lost2 from "./image/lost2.svg";
 import found from "./image/found.svg";
 
+import CloudinaryUploadWidget from "./CloudinaryUploadWidget";
+
 const backgroundImage =
   "https://images.unsplash.com/photo-1626010448982-0fec79ed1979?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80";
 

@@ -6,7 +6,9 @@ import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 
+import CloudinaryUploadWidget from "./CloudinaryUploadWidget";
 import "./Form.css";
+
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -190,17 +192,7 @@ export default function Form() {
                   Check
                 </Button>
               </Grid>
-              <Button
-                startIcon={<PhotoCamera />}
-                id="photoItem"
-                name="photoItem"
-                variant="contained"
-                component="label"
-                sx={{ mt: 2, mb: 1 }}
-              >
-                Upload item picture
-                <input type="file" hidden />
-              </Button>
+              <CloudinaryUploadWidget />
               <Controller
                 name="comment"
                 control={control}
