@@ -3,8 +3,14 @@ const db = require("../../db/knex");
 const { default: knex } = require("knex");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("supposed to be list of found items");
+router.get("/", async (req, res) => {
+  try {
+    const data = await db("found_item").select();
+    console.log(data);
+    res.status(200).send(data);
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 router.get("/:foundId", (req, res) => {
@@ -21,6 +27,7 @@ router.post("/newitem", async (req, res) => {
       curr_location: foundItem.curr_location,
       coordinates: foundItem.coordinates,
       comment: foundItem.comment,
+      img_url: foundItem.img_url,
     });
     res.status(200).send("ok");
   } catch (err) {

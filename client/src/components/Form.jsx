@@ -6,7 +6,9 @@ import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 
+import CloudinaryUploadWidget from "./CloudinaryUploadWidget";
 import "./Form.css";
+
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -43,6 +45,7 @@ export default function Form() {
   const [longitude, setLongitude] = useState(139.7531);
   const [latitude, setLatitude] = useState(35.6812);
   const [coordinates, setCoordinates] = useState();
+  const [imgUrl, setImgUrl] = useState("");
   const mapRef = useRef(null);
 
   useEffect(() => {
@@ -51,6 +54,7 @@ export default function Form() {
 
   async function onSubmit(data) {
     data.lonAndLat = coordinates;
+    data.photoItem = imgUrl;
     console.log(data);
     try {
       await axios.post(process.env.REACT_APP_API_URL + "/api/found/newitem", {
@@ -58,7 +62,7 @@ export default function Form() {
         prev_location: data.prevLocation,
         curr_location: data.currentLocation,
         coordinates: data.lonAndLat,
-        // img_url: data.photoItem,
+        img_url: data.photoItem,
         comment: data.comment,
       });
       reset();
@@ -98,7 +102,15 @@ export default function Form() {
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
-        <Grid item xs={12} sm={8} component={Paper} elevation={6} square>
+        <Grid
+          item
+          xs={7}
+          sm={7}
+          component={Paper}
+          elevation={6}
+          square
+          sx={{ backgroundColor: "#1B263B" }}
+        >
           <Box
             sx={{
               my: 8,
@@ -111,7 +123,11 @@ export default function Form() {
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <NoLuggage />
             </Avatar>
-            <Typography component="h1" variant="h5" sx={{ color: "black" }}>
+            <Typography
+              component="h1"
+              variant="h5"
+              sx={{ color: "#ffffff", fontSize: "2rem" }}
+            >
               Report Found Item
             </Typography>
             <Box
@@ -133,6 +149,9 @@ export default function Form() {
                     label="Item description"
                     type="input"
                     autoFocus
+                    className="input__field"
+                    InputLabelProps={{ className: "input__label" }}
+                    inputProps={{ className: "input__label" }}
                   />
                 )}
               ></Controller>
@@ -149,6 +168,9 @@ export default function Form() {
                     label="Where you found the item?"
                     type="input"
                     autoFocus
+                    className="input__field"
+                    InputLabelProps={{ className: "input__label" }}
+                    inputProps={{ className: "input__label" }}
                   />
                 )}
               ></Controller>
@@ -173,6 +195,9 @@ export default function Form() {
                       label="Current item location"
                       type="input"
                       autoFocus
+                      className="input__field"
+                      InputLabelProps={{ className: "input__label" }}
+                      inputProps={{ className: "input__label" }}
                     />
                   )}
                 ></Controller>
@@ -190,17 +215,7 @@ export default function Form() {
                   Check
                 </Button>
               </Grid>
-              <Button
-                startIcon={<PhotoCamera />}
-                id="photoItem"
-                name="photoItem"
-                variant="contained"
-                component="label"
-                sx={{ mt: 2, mb: 1 }}
-              >
-                Upload item picture
-                <input type="file" hidden />
-              </Button>
+              <CloudinaryUploadWidget setImgUrl={setImgUrl} />
               <Controller
                 name="comment"
                 control={control}
@@ -214,6 +229,9 @@ export default function Form() {
                     label="Any comments?"
                     type="input"
                     autoFocus
+                    className="input__field"
+                    InputLabelProps={{ className: "input__label" }}
+                    inputProps={{ className: "input__label" }}
                   />
                 )}
               ></Controller>
@@ -230,7 +248,7 @@ export default function Form() {
             </Box>
           </Box>
         </Grid>
-        <Grid sm={6}>
+        <Grid item xs={5} sm={5}>
           <Map
             ref={mapRef}
             initialViewState={{
