@@ -1,7 +1,7 @@
-h1 {
+.title__foundlist {
   color: black;
 }
 
-.container {
+.container__foundlist {
   padding: 2rem;
 }

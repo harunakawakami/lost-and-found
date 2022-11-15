@@ -12,7 +12,9 @@ export default function Hero() {
     <>
       <div className="container">
         <section className="img__container">
-          <h1>Look for What You Lost & Help Someone In Need</h1>
+          <h1 className="txt__hero">
+            Look for What You Lost & Help Someone In Need
+          </h1>
         </section>
         <section className="link__container">
           <div className="found--list">

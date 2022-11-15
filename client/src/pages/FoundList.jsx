@@ -32,8 +32,8 @@ export default function FoundList() {
 
   return (
     <div>
-      <div className="container">
-        <h1>Found Items</h1>
+      <div className="container__foundlist">
+        <h1 className="title__foundlist">Found Items</h1>
         {allFoundList}
       </div>
     </div>
