@@ -248,7 +248,7 @@ export default function Form() {
             </Box>
           </Box>
         </Grid>
-        <Grid xs={5} sm={5}>
+        <Grid item xs={5} sm={5}>
           <Map
             ref={mapRef}
             initialViewState={{
