@@ -1,0 +1,14 @@
+.container__single--page {
+  background-color: #e0e1dd;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__content {
+  background-color: #fff;
+  width: 95%;
+  height: 600px;
+  border-radius: 2rem;
+}

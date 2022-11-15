@@ -6,6 +6,7 @@ import Typography from "@mui/joy/Typography";
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import { Link } from "react-router-dom";
 import "./CardItem.css";
+import SingleFoundItem from "../pages/SingleFoundItem";
 
 export default function CardItem(props) {
   const { item, currLocation } = props;
@@ -15,7 +16,7 @@ export default function CardItem(props) {
         <div className="item--locaiton">
           <Link
             style={{ textDecoration: "none", color: "#1c1c1a" }}
-            to="/found/id:"
+            to="/found/foundId:"
           >
             <CardContent
               sx={{ px: 2, display: "flex", justifyContent: "center" }}
