@@ -27,6 +27,7 @@ router.post("/newitem", async (req, res) => {
       curr_location: foundItem.curr_location,
       coordinates: foundItem.coordinates,
       comment: foundItem.comment,
+      img_url: foundItem.img_url,
     });
     res.status(200).send("ok");
   } catch (err) {

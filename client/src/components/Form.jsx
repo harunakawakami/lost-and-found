@@ -45,6 +45,7 @@ export default function Form() {
   const [longitude, setLongitude] = useState(139.7531);
   const [latitude, setLatitude] = useState(35.6812);
   const [coordinates, setCoordinates] = useState();
+  const [imgUrl, setImgUrl] = useState("");
   const mapRef = useRef(null);
 
   useEffect(() => {
@@ -53,6 +54,7 @@ export default function Form() {
 
   async function onSubmit(data) {
     data.lonAndLat = coordinates;
+    data.photoItem = imgUrl;
     console.log(data);
     try {
       await axios.post(process.env.REACT_APP_API_URL + "/api/found/newitem", {
@@ -60,7 +62,7 @@ export default function Form() {
         prev_location: data.prevLocation,
         curr_location: data.currentLocation,
         coordinates: data.lonAndLat,
-        // img_url: data.photoItem,
+        img_url: data.photoItem,
         comment: data.comment,
       });
       reset();
@@ -213,7 +215,7 @@ export default function Form() {
                   Check
                 </Button>
               </Grid>
-              <CloudinaryUploadWidget />
+              <CloudinaryUploadWidget setImgUrl={setImgUrl} />
               <Controller
                 name="comment"
                 control={control}
