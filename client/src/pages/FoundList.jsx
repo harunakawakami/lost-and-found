@@ -5,30 +5,30 @@ import CardItem from "../components/CardItem";
 import "./FoundList.css";
 
 export default function FoundList() {
-  const [fetchedData, setFetchedData] = useState();
-  const dataFetchedRef = useRef(false);
+  const [fetchedData, setFetchedData] = useState([]);
 
   useEffect(() => {
-    if (dataFetchedRef.current) return;
-    dataFetchedRef.current = true;
     getItemData();
   }, []);
 
   async function getItemData() {
     try {
       const res = await axios.get(process.env.REACT_APP_API_URL + "/api/found");
-      console.log("test");
-      console.log(res);
-      await setFetchedData(res.data);
+      console.log(res.data);
+      setFetchedData(res.data);
     } catch (err) {
       console.error(err);
     }
   }
 
-  console.log(fetchedData);
-
-  const allFoundList = fetchedData.map((data) => {
-    return <CardItem item={data.item} currLocation={data.curr_location} />;
+  const allFoundList = fetchedData.map((singleFound) => {
+    return (
+      <CardItem
+        key={singleFound.id}
+        item={singleFound.item}
+        currLocation={singleFound.curr_location}
+      />
+    );
   });
 
   return (
