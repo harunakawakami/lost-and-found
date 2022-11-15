@@ -3,8 +3,9 @@ const db = require("../../db/knex");
 const { default: knex } = require("knex");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("supposed to be list of found items");
+router.get("/", async (req, res) => {
+  const data = await db("found_item").select();
+  res.status(200).send(data);
 });
 
 router.get("/:foundId", (req, res) => {

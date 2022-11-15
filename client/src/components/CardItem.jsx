@@ -1,15 +1,14 @@
 import * as React from "react";
 import AspectRatio from "@mui/joy/AspectRatio";
-import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
-import CardOverflow from "@mui/joy/CardOverflow";
 import Divider from "@mui/joy/Divider";
 import Typography from "@mui/joy/Typography";
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import { Link } from "react-router-dom";
 import "./CardItem.css";
 
-export default function CardItem() {
+export default function CardItem(props) {
+  const { item, currLocation } = props;
   return (
     <>
       <div className="card">
@@ -26,7 +25,7 @@ export default function CardItem() {
                 mb={0.7}
                 sx={{ color: "#1B263B", fontSize: "1.7rem" }}
               >
-                Yosemite Park
+                {item}
               </Typography>
               <Typography
                 startDecorator={<LocationOnRoundedIcon />}
@@ -34,7 +33,7 @@ export default function CardItem() {
                 textColor="neutral.600"
                 sx={{ fontSize: "1.2rem" }}
               >
-                California, USA
+                {currLocation}
               </Typography>
             </CardContent>
           </Link>
