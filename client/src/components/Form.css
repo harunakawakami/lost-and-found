@@ -3,6 +3,15 @@ img {
   height: 100%;
 }
 
+.input__field {
+  color: #ffffff;
+  background-color: #415a77;
+  border-radius: 4px;
+}
+.input__label {
+  color: #ffffff !important;
+}
+
 .icon__pin {
   width: 40px;
 }

@@ -100,7 +100,15 @@ export default function Form() {
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
-        <Grid item xs={7} sm={7} component={Paper} elevation={6} square>
+        <Grid
+          item
+          xs={7}
+          sm={7}
+          component={Paper}
+          elevation={6}
+          square
+          sx={{ backgroundColor: "#1B263B" }}
+        >
           <Box
             sx={{
               my: 8,
@@ -113,7 +121,11 @@ export default function Form() {
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <NoLuggage />
             </Avatar>
-            <Typography component="h1" variant="h5" sx={{ color: "black" }}>
+            <Typography
+              component="h1"
+              variant="h5"
+              sx={{ color: "#ffffff", fontSize: "2rem" }}
+            >
               Report Found Item
             </Typography>
             <Box
@@ -135,6 +147,9 @@ export default function Form() {
                     label="Item description"
                     type="input"
                     autoFocus
+                    className="input__field"
+                    InputLabelProps={{ className: "input__label" }}
+                    inputProps={{ className: "input__label" }}
                   />
                 )}
               ></Controller>
@@ -151,6 +166,9 @@ export default function Form() {
                     label="Where you found the item?"
                     type="input"
                     autoFocus
+                    className="input__field"
+                    InputLabelProps={{ className: "input__label" }}
+                    inputProps={{ className: "input__label" }}
                   />
                 )}
               ></Controller>
@@ -175,6 +193,9 @@ export default function Form() {
                       label="Current item location"
                       type="input"
                       autoFocus
+                      className="input__field"
+                      InputLabelProps={{ className: "input__label" }}
+                      inputProps={{ className: "input__label" }}
                     />
                   )}
                 ></Controller>
@@ -206,6 +227,9 @@ export default function Form() {
                     label="Any comments?"
                     type="input"
                     autoFocus
+                    className="input__field"
+                    InputLabelProps={{ className: "input__label" }}
+                    inputProps={{ className: "input__label" }}
                   />
                 )}
               ></Controller>

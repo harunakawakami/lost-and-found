@@ -17,6 +17,7 @@ export default function FoundList() {
   async function getItemData() {
     try {
       const res = await axios.get(process.env.REACT_APP_API_URL + "/api/found");
+      console.log("test");
       console.log(res);
       await setFetchedData(res.data);
     } catch (err) {
