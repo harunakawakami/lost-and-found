@@ -41,7 +41,7 @@ export default function Header() {
           <Box sx={{ display: "flex", ml: "auto" }}>
             <Link style={{ textDecoration: "none" }} to="/found">
               <Button variant="text" sx={{ color: "white" }}>
-                Found Items
+                Look for Found Items
               </Button>
             </Link>
             <Link style={{ textDecoration: "none" }} to="/found/newitem">

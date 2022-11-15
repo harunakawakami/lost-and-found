@@ -17,12 +17,14 @@ export default function Hero() {
         <section className="link__container">
           <div className="found--list">
             <Link className="txt__link" to="/found/">
+              <p>I lost my belongings...</p>
               <img className="img__lost" src={lost2} alt="" />
-              <p>Search Found Items</p>
+              <p>Look for Found Items</p>
             </Link>
           </div>
           <div className="report--item">
             <Link className="txt__link" to="/found/newitem">
+              <p>I picked up someone's belongings...</p>
               <img className="img__found" src={found} alt="" />
               <p>Report Found Item</p>
             </Link>

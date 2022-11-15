@@ -98,7 +98,7 @@ export default function Form() {
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
-        <Grid item xs={12} sm={8} component={Paper} elevation={6} square>
+        <Grid item xs={7} sm={7} component={Paper} elevation={6} square>
           <Box
             sx={{
               my: 8,
@@ -230,7 +230,7 @@ export default function Form() {
             </Box>
           </Box>
         </Grid>
-        <Grid sm={6}>
+        <Grid xs={5} sm={5}>
           <Map
             ref={mapRef}
             initialViewState={{
