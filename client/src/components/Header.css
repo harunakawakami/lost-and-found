@@ -1,12 +1,9 @@
-/* font-family: 'Pacifico', cursive;
-font-family: 'Poppins', sans-serif; */
-
 .btn__line--white {
-  color: #fff;
-  padding: 1rem;
-  border: solid 2px transparent;
+  color: #fff !important;
+  padding: 1rem !important;
+  border: solid 2px transparent !important;
 }
 
 .btn__line--white:hover {
-  border: solid 2px #fff;
+  border: solid 2px #fff !important;
 }
