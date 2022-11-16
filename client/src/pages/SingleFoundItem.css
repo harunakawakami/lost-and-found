@@ -5,7 +5,7 @@ img {
 
 .container__single--page {
   background-color: #e0e1dd;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -26,11 +26,12 @@ img {
 }
 
 .content__left {
-  width: 50%;
+  width: 35%;
 }
 
 .span__item {
   display: flex;
+  flex-direction: column;
   margin: 2rem;
 }
 
@@ -55,26 +56,28 @@ img {
   font-weight: 500;
 }
 
+.name {
+  font-size: 3rem;
+}
+
 .space {
   margin-left: 3px;
   margin-right: 5px;
 }
 
 .content__right {
-  width: 50%;
+  width: 65%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
 }
 
-.img__wrapper img {
-  width: 400px;
-}
-
-.img__item {
-  width: 200px;
-  height: 250px;
-  margin-bottom: 1rem;
+.img__wrapper--single img {
+  width: 300px;
+  height: 75vh;
+  margin-right: 1rem;
+  border-radius: 1rem;
   object-fit: cover;
   object-position: center;
   overflow: hidden;

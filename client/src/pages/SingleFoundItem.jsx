@@ -42,33 +42,27 @@ export default function SingleFoundItem() {
         <div className="container__content">
           <section className="content__left">
             <span className="span__item">
-              <p className="item__title">
+              {/* <p className="item__title name">
                 Found Item Name <span className="space">:</span>
-              </p>
-              <p className="item">{fetchedData.item}</p>
+              </p> */}
+              <p className="item name">{fetchedData.item}</p>
             </span>
             <span className="span__item">
-              <p className="item__title">
-                Found Location <span className="space">:</span>{" "}
-              </p>
+              <p className="item__title">Found Location</p>
               <p className="item">{fetchedData.prev_location}</p>
             </span>
             <span className="span__item">
-              <p className="item__title">
-                Current Item Location <span className="space">:</span>{" "}
-              </p>
+              <p className="item__title">Current Item Location</p>
               <p className="item">{fetchedData.curr_location}</p>
             </span>
             <span className="span__item span__comment">
-              <p className="item__title">
-                Comments from the Person Picked Up{" "}
-                <span className="space">:</span>
-              </p>
+              <p className="item__title">Comments from</p>
+              <p className="item__title">the Person Picked Up</p>
               <p className="item">{fetchedData.comment}</p>
             </span>
           </section>
           <section className="content__right">
-            <div className="img__wrapper">
+            <div className="img__wrapper--single">
               <img
                 className="img__item"
                 src={noimage_big}
@@ -84,7 +78,7 @@ export default function SingleFoundItem() {
                   latitude: fetchedData.coordinates.coordinates[1],
                   zoom: 15,
                 }}
-                style={{ width: 500, height: "40vh" }}
+                style={{ width: 500, height: "75vh", borderRadius: "1rem" }}
                 mapStyle="mapbox://styles/mapbox/streets-v9"
               >
                 <Marker
