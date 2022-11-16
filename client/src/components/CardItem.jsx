@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import "./CardItem.css";
 
 export default function CardItem(props) {
-  const { item, currLocation } = props;
+  const { item, currLocation, photoItem } = props;
   return (
     <>
       <div className="card">
@@ -41,12 +41,7 @@ export default function CardItem(props) {
         <div className="img__wrapper">
           <Divider />
           <AspectRatio ratio="1" sx={{ width: "200px", height: "200px" }}>
-            <img
-              src="https://images.unsplash.com/photo-1507833423370-a126b89d394b?auto=format&fit=crop&w=90"
-              srcSet="https://images.unsplash.com/photo-1507833423370-a126b89d394b?auto=format&fit=crop&w=90&dpr=2 2x"
-              loading="lazy"
-              alt=""
-            />
+            <img src={photoItem} loading="lazy" alt="" />
           </AspectRatio>
         </div>
       </div>

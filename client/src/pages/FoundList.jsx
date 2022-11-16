@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 import CardItem from "../components/CardItem";
 import "./FoundList.css";
@@ -27,6 +27,7 @@ export default function FoundList() {
         key={singleFound.id}
         item={singleFound.item}
         currLocation={singleFound.curr_location}
+        photoItem={singleFound.img_url}
       />
     );
   });
