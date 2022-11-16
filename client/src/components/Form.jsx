@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
 import Map, { Marker } from "react-map-gl";
@@ -43,6 +45,8 @@ export default function Form() {
   const [imgUrl, setImgUrl] = useState("");
   const mapRef = useRef(null);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     flyToLocation(longitude, latitude);
   }, [longitude, latitude]);
@@ -61,6 +65,7 @@ export default function Form() {
         comment: data.comment,
       });
       reset();
+      navigate("/found");
     } catch (err) {
       console.error(err);
     }
@@ -143,7 +148,6 @@ export default function Form() {
                     id="item"
                     label="Item description"
                     type="input"
-                    autoFocus
                     className="input__field"
                     InputLabelProps={{ className: "input__label" }}
                     inputProps={{ className: "input__label" }}
@@ -162,7 +166,6 @@ export default function Form() {
                     id="prevLocation"
                     label="Where you found the item?"
                     type="input"
-                    autoFocus
                     className="input__field"
                     InputLabelProps={{ className: "input__label" }}
                     inputProps={{ className: "input__label" }}
@@ -189,7 +192,6 @@ export default function Form() {
                       id="currentLocation"
                       label="Current item location"
                       type="input"
-                      autoFocus
                       className="input__field"
                       InputLabelProps={{ className: "input__label" }}
                       inputProps={{ className: "input__label" }}
@@ -223,7 +225,6 @@ export default function Form() {
                     name="comment"
                     label="Any comments?"
                     type="input"
-                    autoFocus
                     className="input__field"
                     InputLabelProps={{ className: "input__label" }}
                     inputProps={{ className: "input__label" }}

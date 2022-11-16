@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -22,6 +22,8 @@ export default function SingleFoundItem() {
   const [fetchedData, setFetchedData] = useState(null);
   const mapRef = useRef(null);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     getSingleData(id);
   }, []);
@@ -32,6 +34,17 @@ export default function SingleFoundItem() {
         process.env.REACT_APP_API_URL + `/api/found/${id}`
       );
       setFetchedData(res.data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async function deleteData(id) {
+    try {
+      const res = await axios.delete(
+        process.env.REACT_APP_API_URL + `/api/found/${id}`
+      );
+      console.log(res);
     } catch (err) {
       console.error(err);
     }
@@ -50,7 +63,7 @@ export default function SingleFoundItem() {
               <p className="item">{fetchedData.prev_location}</p>
             </span>
             <span className="span__item">
-              <p className="item__title">Current Item Location</p>
+              <p className="item__title">Current Location</p>
               <p className="item">{fetchedData.curr_location}</p>
             </span>
             <span className="span__item span__comment">
@@ -59,7 +72,15 @@ export default function SingleFoundItem() {
               <p className="item">{fetchedData.comment}</p>
             </span>
 
-            <Button variant="contained" size="large" sx={{ ml: 4 }}>
+            <Button
+              variant="contained"
+              size="large"
+              sx={{ ml: 4 }}
+              onClick={() => {
+                deleteData(fetchedData.id);
+                navigate("/found");
+              }}
+            >
               Already Picked Up This Item
             </Button>
           </section>
