@@ -11,8 +11,6 @@ export default function FoundList() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (dataFetchedRef.current) return;
-    dataFetchedRef.current = true;
     getItemData();
   }, []);
 

@@ -32,7 +32,7 @@ export default function CloudinaryUploadWidget({ setImgUrl }) {
       name="photoItem"
       variant="contained"
       component="label"
-      sx={{ mt: 2, mb: 1 }}
+      sx={{ mt: 2, mb: 1, backgroundColor: "#ff5722" }}
     >
       Upload item picture
     </Button>
