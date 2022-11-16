@@ -46,8 +46,12 @@ router.post("/newitem", async (req, res) => {
   }
 });
 
-router.delete("/:foundId", (req, res) => {
-  res.send("supposed to delete an item which is picked up");
+router.delete("/:foundId", async (req, res) => {
+  const { foundId } = req.params;
+
+  console.log("server", foundId);
+  await db("found_item").where({ id: foundId }).del();
+  res.status(200).send("ok");
 });
 
 module.exports = router;

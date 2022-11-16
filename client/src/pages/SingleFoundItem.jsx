@@ -37,6 +37,17 @@ export default function SingleFoundItem() {
     }
   }
 
+  async function deleteData(id) {
+    try {
+      const res = await axios.delete(
+        process.env.REACT_APP_API_URL + `/api/found/${id}`
+      );
+      console.log(res);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   return (
     fetchedData && (
       <div className="container__single--page">
@@ -50,7 +61,7 @@ export default function SingleFoundItem() {
               <p className="item">{fetchedData.prev_location}</p>
             </span>
             <span className="span__item">
-              <p className="item__title">Current Item Location</p>
+              <p className="item__title">Current Location</p>
               <p className="item">{fetchedData.curr_location}</p>
             </span>
             <span className="span__item span__comment">
@@ -59,7 +70,14 @@ export default function SingleFoundItem() {
               <p className="item">{fetchedData.comment}</p>
             </span>
 
-            <Button variant="contained" size="large" sx={{ ml: 4 }}>
+            <Button
+              variant="contained"
+              size="large"
+              sx={{ ml: 4 }}
+              onClick={() => {
+                deleteData(fetchedData.id);
+              }}
+            >
               Already Picked Up This Item
             </Button>
           </section>

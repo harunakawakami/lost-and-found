@@ -143,7 +143,6 @@ export default function Form() {
                     id="item"
                     label="Item description"
                     type="input"
-                    autoFocus
                     className="input__field"
                     InputLabelProps={{ className: "input__label" }}
                     inputProps={{ className: "input__label" }}
@@ -162,7 +161,6 @@ export default function Form() {
                     id="prevLocation"
                     label="Where you found the item?"
                     type="input"
-                    autoFocus
                     className="input__field"
                     InputLabelProps={{ className: "input__label" }}
                     inputProps={{ className: "input__label" }}
@@ -189,7 +187,6 @@ export default function Form() {
                       id="currentLocation"
                       label="Current item location"
                       type="input"
-                      autoFocus
                       className="input__field"
                       InputLabelProps={{ className: "input__label" }}
                       inputProps={{ className: "input__label" }}
@@ -223,7 +220,6 @@ export default function Form() {
                     name="comment"
                     label="Any comments?"
                     type="input"
-                    autoFocus
                     className="input__field"
                     InputLabelProps={{ className: "input__label" }}
                     inputProps={{ className: "input__label" }}
