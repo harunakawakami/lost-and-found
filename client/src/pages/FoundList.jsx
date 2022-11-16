@@ -40,7 +40,7 @@ export default function FoundList() {
 
   return (
     <div className="container__foundlist">
-      <h1 className="title__foundlist">Found Items</h1>
+      <h1 className="title__foundlist">Found Items 👛 </h1>
       <div>{allFoundList}</div>
     </div>
   );

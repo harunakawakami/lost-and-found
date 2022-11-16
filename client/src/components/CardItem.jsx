@@ -37,7 +37,7 @@ export default function CardItem(props) {
         <div className="img__wrapper">
           <Divider />
           <AspectRatio ratio="1" sx={{ width: "200px", height: "200px" }}>
-            <img src={photoItem} srcSet={noimage} loading="lazy" alt="" />
+            <img srcSet={photoItem} src={noimage} loading="lazy" alt="" />
           </AspectRatio>
         </div>
       </div>

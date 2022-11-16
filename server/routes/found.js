@@ -20,6 +20,7 @@ router.get("/:foundId", async (req, res) => {
       .select()
       .where({ id: id.foundId })
       .first();
+    data.coordinates = JSON.parse(data.coordinates);
     console.log(data);
     res.status(200).send(data);
   } catch (err) {
