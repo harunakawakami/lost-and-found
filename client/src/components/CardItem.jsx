@@ -4,7 +4,7 @@ import CardContent from "@mui/joy/CardContent";
 import Divider from "@mui/joy/Divider";
 import Typography from "@mui/joy/Typography";
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
-import noimage from "./image/noimage.png";
+import noimage from "./image/no-camera.png";
 import "./CardItem.css";
 
 export default function CardItem(props) {

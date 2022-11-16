@@ -15,11 +15,11 @@ router.get("/", async (req, res) => {
 
 router.get("/:foundId", async (req, res) => {
   const id = req.params;
-
-  console.log(id);
-
   try {
-    const data = await db("found_item").select().where({ id: id.foundId });
+    const data = await db("found_item")
+      .select()
+      .where({ id: id.foundId })
+      .first();
     console.log(data);
     res.status(200).send(data);
   } catch (err) {
