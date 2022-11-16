@@ -16,9 +16,10 @@ export default function CloudinaryUploadWidget({ setImgUrl }) {
         folder: process.env.REACT_APP_API_CLOUDINARY_FOLDER,
       },
       function (error, result) {
+        console.log(result);
         if (result.info.files) {
-          setImgUrl(result.info.files[0].uploadInfo.url);
-          console.log(result.info.files[0].uploadInfo.url);
+          setImgUrl(result.info.files[0].uploadInfo.secure_url);
+          console.log(result.info.files[0].uploadInfo.secure_url);
         }
       }
     );
