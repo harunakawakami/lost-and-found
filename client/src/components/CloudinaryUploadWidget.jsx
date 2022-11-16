@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from "react";
 import Button from "@mui/material/Button";
 import { PhotoCamera } from "@mui/icons-material";
 
-export default function CloudinaryUploadWidget() {
+export default function CloudinaryUploadWidget({ setImgUrl }) {
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
 
@@ -16,7 +16,10 @@ export default function CloudinaryUploadWidget() {
         folder: process.env.REACT_APP_API_CLOUDINARY_FOLDER,
       },
       function (error, result) {
-        console.log(result.info.files[0].uploadInfo.url);
+        if (result.info.files) {
+          setImgUrl(result.info.files[0].uploadInfo.url);
+          console.log(result.info.files[0].uploadInfo.url);
+        }
       }
     );
   }, []);
