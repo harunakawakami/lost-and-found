@@ -3,5 +3,7 @@
 }
 
 .container__foundlist {
+  min-height: 100vh;
+  background-color: #e0e1ddcd;
   padding: 2rem;
 }

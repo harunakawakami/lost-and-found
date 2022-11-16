@@ -6,6 +6,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import "./Header.css";
 
 export default function Header() {
   return (
@@ -40,12 +41,16 @@ export default function Header() {
 
           <Box sx={{ display: "flex", ml: "auto" }}>
             <Link style={{ textDecoration: "none" }} to="/found">
-              <Button variant="text" sx={{ color: "white" }}>
+              <Button variant="text" className="btn__line--white">
                 Look for Found Items
               </Button>
             </Link>
             <Link style={{ textDecoration: "none" }} to="/found/newitem">
-              <Button variant="text" sx={{ color: "white", mr: 1, ml: 1 }}>
+              <Button
+                variant="text"
+                className="btn__line--white"
+                sx={{ mr: 2, ml: 1 }}
+              >
                 Report Found Item
               </Button>
             </Link>

@@ -16,12 +16,7 @@ import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import {
-  NoLuggage,
-  PhotoCamera,
-  Report,
-  LocationOn,
-} from "@mui/icons-material";
+import { NoLuggage, Report, LocationOn } from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import pin from "./icon/pin.svg";
@@ -210,7 +205,7 @@ export default function Form() {
                   variant="contained"
                   component="label"
                   size="large"
-                  sx={{ mt: 2, mb: 1, ml: 1 }}
+                  sx={{ mt: 2, mb: 1, ml: 1, backgroundColor: "#ff5722" }}
                 >
                   Check
                 </Button>
@@ -241,7 +236,7 @@ export default function Form() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, backgroundColor: "#ff5722" }}
               >
                 Report Item
               </Button>

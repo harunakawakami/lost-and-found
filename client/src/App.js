@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Form from "./components/Form";
 import Hero from "./components/Hero";
 import FoundList from "./pages/FoundList";
+import SingleFoundItem from "./pages/SingleFoundItem";
 
 import "./App.css";
 
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path={`/`} element={<Hero />} />
           <Route path={`/found`} element={<FoundList />} />
+          <Route path={`/found/:foundId`} element={<SingleFoundItem />} />
           <Route path={`/found/newitem`} element={<Form />} />
         </Routes>
       </BrowserRouter>
