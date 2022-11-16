@@ -21,8 +21,6 @@ img {
 
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
-  /* justify-content: center; */
 }
 
 .content__left {
@@ -57,12 +55,7 @@ img {
 }
 
 .name {
-  font-size: 3rem;
-}
-
-.space {
-  margin-left: 3px;
-  margin-right: 5px;
+  font-size: 2.5rem;
 }
 
 .content__right {
@@ -74,7 +67,7 @@ img {
 }
 
 .img__wrapper--single img {
-  width: 300px;
+  width: 350px;
   height: 75vh;
   margin-right: 1rem;
   border-radius: 1rem;

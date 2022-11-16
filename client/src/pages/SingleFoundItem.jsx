@@ -6,6 +6,7 @@ import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 
+import Button from "@mui/material/Button";
 import "./SingleFoundItem.css";
 import noimage_big from "../components/image/noimage-big.png";
 import pin from "../components/icon/pin.svg";
@@ -42,9 +43,6 @@ export default function SingleFoundItem() {
         <div className="container__content">
           <section className="content__left">
             <span className="span__item">
-              {/* <p className="item__title name">
-                Found Item Name <span className="space">:</span>
-              </p> */}
               <p className="item name">{fetchedData.item}</p>
             </span>
             <span className="span__item">
@@ -60,6 +58,10 @@ export default function SingleFoundItem() {
               <p className="item__title">the Person Picked Up</p>
               <p className="item">{fetchedData.comment}</p>
             </span>
+
+            <Button variant="contained" size="large" sx={{ ml: 4 }}>
+              Already Picked Up This Item
+            </Button>
           </section>
           <section className="content__right">
             <div className="img__wrapper--single">
@@ -78,7 +80,7 @@ export default function SingleFoundItem() {
                   latitude: fetchedData.coordinates.coordinates[1],
                   zoom: 15,
                 }}
-                style={{ width: 500, height: "75vh", borderRadius: "1rem" }}
+                style={{ width: 450, height: "75vh", borderRadius: "1rem" }}
                 mapStyle="mapbox://styles/mapbox/streets-v9"
               >
                 <Marker
