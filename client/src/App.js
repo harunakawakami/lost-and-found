@@ -15,8 +15,8 @@ function App() {
         <Routes>
           <Route path={`/`} element={<Hero />} />
           <Route path={`/found`} element={<FoundList />} />
+          <Route path={`/found/:foundId`} element={<SingleFoundItem />} />
           <Route path={`/found/newitem`} element={<Form />} />
-          <Route path={`/found/test`} element={<SingleFoundItem />} />
         </Routes>
       </BrowserRouter>
     </>

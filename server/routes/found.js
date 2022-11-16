@@ -13,8 +13,18 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:foundId", (req, res) => {
-  res.send("supposed to be a single page of found item");
+router.get("/:foundId", async (req, res) => {
+  const id = req.params;
+
+  console.log(id);
+
+  try {
+    const data = await db("found_item").select().where({ id: id.foundId });
+    console.log(data);
+    res.status(200).send(data);
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 router.post("/newitem", async (req, res) => {

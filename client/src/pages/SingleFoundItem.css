@@ -8,6 +8,7 @@
 
 .container__content {
   background-color: #fff;
+  padding: 2rem;
   width: 95%;
   height: 600px;
   border-radius: 2rem;
