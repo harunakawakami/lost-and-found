@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
 import Map, { Marker } from "react-map-gl";
@@ -43,6 +45,8 @@ export default function Form() {
   const [imgUrl, setImgUrl] = useState("");
   const mapRef = useRef(null);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     flyToLocation(longitude, latitude);
   }, [longitude, latitude]);
@@ -61,6 +65,7 @@ export default function Form() {
         comment: data.comment,
       });
       reset();
+      navigate("/found");
     } catch (err) {
       console.error(err);
     }

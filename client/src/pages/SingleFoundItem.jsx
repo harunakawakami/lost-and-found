@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -21,6 +21,8 @@ export default function SingleFoundItem() {
 
   const [fetchedData, setFetchedData] = useState(null);
   const mapRef = useRef(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getSingleData(id);
@@ -76,6 +78,7 @@ export default function SingleFoundItem() {
               sx={{ ml: 4 }}
               onClick={() => {
                 deleteData(fetchedData.id);
+                navigate("/found");
               }}
             >
               Already Picked Up This Item
