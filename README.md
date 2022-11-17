@@ -26,7 +26,6 @@ NODE_ENV=development
 
 ```sh
 npm install
-npm migrate
 ```
 
 
