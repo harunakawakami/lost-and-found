@@ -6,7 +6,7 @@ import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 
-import Button from "@mui/material/Button";
+import { Button, Container, Box } from "@mui/material";
 import "./SingleFoundItem.css";
 import noimage_big from "../components/image/noimage-big.png";
 import pin from "../components/icon/pin.svg";
@@ -52,9 +52,9 @@ export default function SingleFoundItem() {
 
   return (
     fetchedData && (
-      <div className="container__single--page">
+      <Box sx={{ padding: "2rem" }}>
         <div className="container__content">
-          <section className="content__left">
+          <Box>
             <span className="span__item">
               <p className="item name">{fetchedData.item}</p>
             </span>
@@ -83,8 +83,15 @@ export default function SingleFoundItem() {
             >
               Already Picked Up This Item
             </Button>
-          </section>
-          <section className="content__right">
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "flex-end",
+            }}
+          >
             <div className="img__wrapper--single">
               <img
                 className="img__item"
@@ -101,7 +108,11 @@ export default function SingleFoundItem() {
                   latitude: fetchedData.coordinates.coordinates[1],
                   zoom: 15,
                 }}
-                style={{ width: 450, height: "75vh", borderRadius: "1rem" }}
+                style={{
+                  width: "400px",
+                  height: "100vh",
+                  borderRadius: "1rem",
+                }}
                 mapStyle="mapbox://styles/mapbox/streets-v9"
               >
                 <Marker
@@ -114,9 +125,9 @@ export default function SingleFoundItem() {
                 </Marker>
               </Map>
             </div>
-          </section>
+          </Box>
         </div>
-      </div>
+      </Box>
     )
   );
 }
