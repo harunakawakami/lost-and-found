@@ -54,23 +54,33 @@ export default function SingleFoundItem() {
     fetchedData && (
       <Box sx={{ padding: "2rem" }}>
         <div className="container__content">
-          <Box>
-            <span className="span__item">
-              <p className="item name">{fetchedData.item}</p>
-            </span>
-            <span className="span__item">
-              <p className="item__title">Found Location</p>
-              <p className="item">{fetchedData.prev_location}</p>
-            </span>
-            <span className="span__item">
-              <p className="item__title">Current Location</p>
-              <p className="item">{fetchedData.curr_location}</p>
-            </span>
-            <span className="span__item span__comment">
-              <p className="item__title">Comments from</p>
-              <p className="item__title">the Person Picked Up</p>
-              <p className="item">{fetchedData.comment}</p>
-            </span>
+          <Box sx={{ height: "90%", width: "40%" }}>
+            <div className="img__wrapper--single">
+              <img
+                className="img__item"
+                src={noimage_big}
+                srcSet={fetchedData.img_url}
+                alt={fetchedData.item}
+              />
+            </div>
+            <Box>
+              <span className="span__item">
+                <p className="item name">{fetchedData.item}</p>
+              </span>
+              <span className="span__item">
+                <p className="item__title">Found Location</p>
+                <p className="item">{fetchedData.prev_location}</p>
+              </span>
+              <span className="span__item">
+                <p className="item__title">Current Location</p>
+                <p className="item">{fetchedData.curr_location}</p>
+              </span>
+              <span className="span__item span__comment">
+                <p className="item__title">Comments from</p>
+                <p className="item__title">the Person Picked Up</p>
+                <p className="item">{fetchedData.comment}</p>
+              </span>
+            </Box>
 
             <Button
               variant="contained"
@@ -84,22 +94,7 @@ export default function SingleFoundItem() {
               Already Picked Up This Item
             </Button>
           </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "flex-end",
-            }}
-          >
-            <div className="img__wrapper--single">
-              <img
-                className="img__item"
-                src={noimage_big}
-                srcSet={fetchedData.img_url}
-                alt={fetchedData.item}
-              />
-            </div>
+          <Box>
             <div className="map__wrapper">
               <Map
                 ref={mapRef}
@@ -109,7 +104,7 @@ export default function SingleFoundItem() {
                   zoom: 15,
                 }}
                 style={{
-                  width: "400px",
+                  width: "50vw",
                   height: "100vh",
                   borderRadius: "1rem",
                 }}

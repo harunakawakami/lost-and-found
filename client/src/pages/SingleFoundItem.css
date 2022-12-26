@@ -6,12 +6,7 @@
 
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.content__left {
-  width: 35%;
+  justify-content: space-between;
 }
 
 .span__item {
@@ -46,9 +41,6 @@
 }
 
 .map__wrapper {
-  width: 35%;
-  height: 75%;
-  margin-right: 1rem;
   border-radius: 1rem;
   object-fit: cover;
   object-position: center;
@@ -56,11 +48,11 @@
 }
 
 .img__wrapper--single {
-  width: 35%;
-  height: 75%;
+  /* width: 35vw; */
+  height: 40vh;
   margin-right: 1rem;
   border-radius: 1rem;
-  object-fit: cover;
+  object-fit: none;
   object-position: center;
   overflow: hidden;
 }
