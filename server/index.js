@@ -1,4 +1,5 @@
-import setupServer from "./server.js";
+const setupServer = require("./server.js");
+const db = require("../db/knex");
 const PORT = process.env.PORT || 8000;
 const server = setupServer();
 

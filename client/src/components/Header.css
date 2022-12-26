@@ -1,0 +1,9 @@
+.btn__line--white {
+  color: #fff !important;
+  padding: 1rem !important;
+  border: solid 2px transparent !important;
+}
+
+.btn__line--white:hover {
+  border: solid 2px #fff !important;
+}

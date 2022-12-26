@@ -1,17 +1,24 @@
-import express from "express";
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
+
+const foundRoutes = require("./routes/found");
 
 function setupServer() {
   const app = express();
 
   //middleware
   app.use(express.json());
-  // app.use(express.static(path.join(__dirname, '../public')));
+  app.use(express.static(path.join(__dirname, "../client/build")));
+  app.use(cors());
 
   app.get("/", (req, res) => {
     res.status(200).send("ok");
   });
 
+  app.use("/api/found", foundRoutes);
+
   return app;
 }
 
-export default setupServer;
+module.exports = setupServer;
