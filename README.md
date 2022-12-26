@@ -1,8 +1,8 @@
 # Lost and Found
 
 Lost and Found is a platform for all to post someone's belongings and check on lost items
-![Screen_Recording_2022-12-26_at_12_18_50_AdobeExpress](https://user-images.githubusercontent.com/83695925/209495780-6bebd918-5b86-46f1-ad05-e18a46ea3a69.gif)
 
+![8C5C1D20-04AA-47F5-B5AC-608F47EAB052_AdobeExpress](https://user-images.githubusercontent.com/83695925/209497730-f85003ae-a10a-4e23-a444-754370265009.gif)
 
 ## Installation
 
