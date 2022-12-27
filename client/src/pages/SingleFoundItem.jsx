@@ -6,7 +6,7 @@ import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 
-import Button from "@mui/material/Button";
+import { Button, Box } from "@mui/material";
 import "./SingleFoundItem.css";
 import noimage_big from "../components/image/noimage-big.png";
 import pin from "../components/icon/pin.svg";
@@ -52,25 +52,35 @@ export default function SingleFoundItem() {
 
   return (
     fetchedData && (
-      <div className="container__single--page">
+      <Box sx={{ padding: "2rem" }}>
         <div className="container__content">
-          <section className="content__left">
-            <span className="span__item">
-              <p className="item name">{fetchedData.item}</p>
-            </span>
-            <span className="span__item">
-              <p className="item__title">Found Location</p>
-              <p className="item">{fetchedData.prev_location}</p>
-            </span>
-            <span className="span__item">
-              <p className="item__title">Current Location</p>
-              <p className="item">{fetchedData.curr_location}</p>
-            </span>
-            <span className="span__item span__comment">
-              <p className="item__title">Comments from</p>
-              <p className="item__title">the Person Picked Up</p>
-              <p className="item">{fetchedData.comment}</p>
-            </span>
+          <Box sx={{ height: "90%", width: "40%" }}>
+            <div className="img__wrapper--single">
+              <img
+                src={noimage_big}
+                srcSet={fetchedData.img_url}
+                alt={fetchedData.item}
+              />
+            </div>
+            <Box>
+              <span className="span__item">
+                <p className="item name">{fetchedData.item}</p>
+              </span>
+              <span className="span__item">
+                <p className="item__title">Found Location</p>
+                <p className="item">{fetchedData.prev_location}</p>
+              </span>
+              <span className="span__item">
+                <p className="item__title">Current Location</p>
+                <p className="item">{fetchedData.curr_location}</p>
+              </span>
+              <span className="span__item span__comment">
+                <p className="item__title">
+                  Comments from the Person Picked Up
+                </p>
+                <p className="item">{fetchedData.comment}</p>
+              </span>
+            </Box>
 
             <Button
               variant="contained"
@@ -83,16 +93,8 @@ export default function SingleFoundItem() {
             >
               Already Picked Up This Item
             </Button>
-          </section>
-          <section className="content__right">
-            <div className="img__wrapper--single">
-              <img
-                className="img__item"
-                src={noimage_big}
-                srcSet={fetchedData.img_url}
-                alt={fetchedData.item}
-              />
-            </div>
+          </Box>
+          <Box>
             <div className="map__wrapper">
               <Map
                 ref={mapRef}
@@ -101,7 +103,11 @@ export default function SingleFoundItem() {
                   latitude: fetchedData.coordinates.coordinates[1],
                   zoom: 15,
                 }}
-                style={{ width: 450, height: "75vh", borderRadius: "1rem" }}
+                style={{
+                  width: "50vw",
+                  height: "100vh",
+                  borderRadius: "1rem",
+                }}
                 mapStyle="mapbox://styles/mapbox/streets-v9"
               >
                 <Marker
@@ -114,9 +120,9 @@ export default function SingleFoundItem() {
                 </Marker>
               </Map>
             </div>
-          </section>
+          </Box>
         </div>
-      </div>
+      </Box>
     )
   );
 }

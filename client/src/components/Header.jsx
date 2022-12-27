@@ -47,7 +47,7 @@ export default function Header() {
             </Link>
             <Link style={{ textDecoration: "none" }} to="/found/newitem">
               <Button
-                variant="text"
+                variant="outlined"
                 className="btn__line--white"
                 sx={{ mr: 2, ml: 1 }}
               >
