@@ -57,7 +57,6 @@ export default function SingleFoundItem() {
           <Box sx={{ height: "90%", width: "40%" }}>
             <div className="img__wrapper--single">
               <img
-                className="img__item"
                 src={noimage_big}
                 srcSet={fetchedData.img_url}
                 alt={fetchedData.item}
@@ -76,8 +75,9 @@ export default function SingleFoundItem() {
                 <p className="item">{fetchedData.curr_location}</p>
               </span>
               <span className="span__item span__comment">
-                <p className="item__title">Comments from</p>
-                <p className="item__title">the Person Picked Up</p>
+                <p className="item__title">
+                  Comments from the Person Picked Up
+                </p>
                 <p className="item">{fetchedData.comment}</p>
               </span>
             </Box>

@@ -47,12 +47,11 @@
   overflow: hidden;
 }
 
-.img__wrapper--single {
-  /* width: 35vw; */
-  height: 40vh;
+.img__wrapper--single img {
+  height: 45vh;
   margin-right: 1rem;
   border-radius: 1rem;
-  object-fit: none;
-  object-position: center;
+  object-fit: scale-down;
+  object-position: 50% 50%;
   overflow: hidden;
 }
