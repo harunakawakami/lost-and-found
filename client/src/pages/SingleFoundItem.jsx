@@ -6,7 +6,7 @@ import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 
-import { Button, Container, Box } from "@mui/material";
+import { Button, Box } from "@mui/material";
 import "./SingleFoundItem.css";
 import noimage_big from "../components/image/noimage-big.png";
 import pin from "../components/icon/pin.svg";
