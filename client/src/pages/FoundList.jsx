@@ -64,7 +64,7 @@ export default function FoundList() {
 
   return (
     fetchedData && (
-      <Box>
+      <Box sx={{ m: 2 }}>
         <h1 className="title__foundlist">Found Items 👛 </h1>
 
         <Box
@@ -73,6 +73,7 @@ export default function FoundList() {
             flexDirection: "row",
             alignItems: "flex-start",
             justifyContent: "space-around",
+            mt: 1,
           }}
         >
           <div>{allFoundList}</div>
